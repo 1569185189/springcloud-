@@ -1,0 +1,14 @@
+server:
+  port: 8002
+
+spring:
+  application:
+    name: consumer-order-consul
+  cloud:
+    #consul的配置地址
+    consul:
+      host: localhost
+      port: 8500
+      #注册的服务名
+      discovery:
+        service-name: ${spring.application.name}

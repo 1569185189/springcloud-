@@ -1,0 +1,29 @@
+server:
+  port: 3344
+spring:
+  application:
+    name: cloud-config-center
+  cloud:
+    config:
+      server:
+        git:
+          #绕过证书验证
+          skipSslValidation: true
+          #github地址，缺少证书无法访问，绕过证书验证
+          uri: https://github.com/1569185189/springcloud-config-application
+          search-paths:
+            - springcloud-config-application
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "bus-refresh"
+eureka:
+  client:
+    service-url:
+      defaultZone: http://eureka7001.com:7001/eureka
